@@ -21,9 +21,7 @@ func (u *lookup) GetIp(w rest.ResponseWriter, r *rest.Request) {
 	preProcessedIp := r.PathParam("ip")
 	preProcessedIp = strings.Replace(preProcessedIp, "_", ".", 3)
 
-
 	ip := net.ParseIP( preProcessedIp )
-
 	if ip == nil {
 		w.WriteJson(lookupResult{
 			Success: false,
